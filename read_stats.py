@@ -8,15 +8,15 @@ cur = conn.cursor()
 
 @app.route('/stats')
 def stats(Player_id):
-  cur.execute("""SELECT EXP FROM Stats WHERE PLAYER_ID = Player_id""")
+  cur.execute("""SELECT EXP FROM Player WHERE PLAYER_ID = Player_id""")
   exp = cur.fetchone()
-  cur.execute("""SELECT LEVEL FROM Stats WHERE PLAYER_ID = Player_id""")
+  cur.execute("""SELECT LEVEL FROM Player WHERE PLAYER_ID = Player_id""")
   lvl = cur.fetchone()
-  cur.execute("""SELECT WIN FROM Stats WHERE PLAYER_ID = Player_id""")
+  cur.execute("""SELECT WIN FROM Player WHERE PLAYER_ID = Player_id""")
   win = cur.fetchone()
-  cur.execute("""SELECT LOSS FROM Stats WHERE PLAYER_ID = Player_id""")
+  cur.execute("""SELECT LOSS FROM Player WHERE PLAYER_ID = Player_id""")
   loss = cur.fetchone()
-  cur.execute("""SELECT BOSS Stats WHERE PLAYER_ID = Player_id""")
+  cur.execute("""SELECT BOSS FROM Player WHERE PLAYER_ID = Player_id""")
   boss = cur.fetchone()
   
   
