@@ -15,7 +15,9 @@ def analyse():
 def analyse_funct(name):
   topic_dict = {}
   subtopic_dict = {}
-  cur.execute("""SELECT EXP FROM Player WHERE NAME = (%s)""", (name))
+
+  test = name
+  cur.execute("""SELECT EXP FROM Player WHERE NAME = %s""" % test)
   exp = cur.fetchone()[0]
   #print(str(exp))
   cur.execute("""SELECT LEVEL FROM Player WHERE NAME = name""")
