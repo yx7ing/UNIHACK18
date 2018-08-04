@@ -1,12 +1,9 @@
 from flask import Flask
 import ind as f
-#import fin as g
-#import
+import fin as g
+import lin as h
 import random
 app = Flask(__name__)
-
-import os
-os.system("python ind.py")
 
 @app.route("/boss/<topic>")
 def boss_battle(topic):
@@ -35,6 +32,27 @@ def boss_battle(topic):
 			ret += f.indp_2()
 
 	elif topic == "fin":
-		ret = ""
+		r_int = random.randint(1, 3)
+		if r_int == 1:
+			#ret = str(r_int)
+			ret += g.fin_1()
+
+		elif r_int == 2:
+			#ret = str(r_int)
+			ret += g.fin_2()
+
+		elif r_int == 3:
+			#ret = str(r_int)
+			ret += g.fin_3()
+
+	elif topic == "lin":
+		r_int = random.randint(1, 2)
+		if r_int == 1:
+			#ret = str(r_int)
+			ret += g.fin_1()
+
+		elif r_int == 2:
+			#ret = str(r_int)
+			ret += g.fin_2()
 
 	return ret
