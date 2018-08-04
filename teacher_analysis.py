@@ -3,7 +3,7 @@ import psycopg2
 
 app = Flask(__name__)
 
-conn = psycopg2.connect("dbname='player' user='samlin' host='localhost' password='dbpass'")
+conn = psycopg2.connect("dbname='eduquest' user='samlin' host='localhost' password='dbpass'")
 cur = conn.cursor()
 
 @app.route('/analyse')
@@ -15,7 +15,7 @@ def analyse():
 def analyse_funct(name):
   topic_dict = {}
   subtopic_dict = {}
-  cur.execute("""SELECT EXP FROM Player WHERE NAME = name""")
+  cur.execute("""SELECT EXP FROM Player WHERE NAME = (%s)""", (name))
   exp = cur.fetchone()[0]
   #print(str(exp))
   cur.execute("""SELECT LEVEL FROM Player WHERE NAME = name""")
@@ -32,6 +32,9 @@ def analyse_funct(name):
     subtopic = cur.fetchone()[0]
 
     #update topic count
+
+	# I thought this was supposed to contain a list of what topics have been done?
+
     if topic in topic_dict.keys():
       topic_dict[topic] = topic_dict[topic] + 1
     else:
