@@ -8,3 +8,9 @@ $(document).on("click", "#nav_quests", function() {
 	$("#status_menu").fadeOut(300);
 	$("#quests_menu").fadeIn(300);
 })
+
+$(document).on("click", "#nav_status", function() {
+	console.log("Hello");
+	$("#quests_menu").fadeOut(300);
+	$("#status_menu").fadeIn(300);
+})
