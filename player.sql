@@ -8,6 +8,7 @@ LEVEL INT NOT NULL,
 WIN INT,
 LOSS INT,
 BOSS INT,
+QUESTS_COMPLETED INT ARRAY[64],
 PRIMARY KEY (ID)
 );
 
@@ -24,4 +25,4 @@ PRIMARY KEY (ID)
 );
 
 INSERT INTO Player
-VALUES (0, 'admin', 'admin', 'admin');
+VALUES (0, 'admin', 'admin', 'admin', 0, 0);
