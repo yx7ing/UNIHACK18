@@ -57,6 +57,6 @@ def boss_battle(topic):
 			ret += g.gradients()
 
 	elif topic == "basic":
-		ret += b.basic()
+		ret += str(b.basic())
 
 	return ret

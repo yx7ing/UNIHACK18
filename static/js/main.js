@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	sessionStorage.hostname = "http://127.0.0.1:5000/";
-	sessionStorage.port = ":5000";
+	sessionStorage.hostname = "http://127.0.0.1";
+	sessionStorage.port = ":5000/";
 })
 
 $(document).on("click", "#nav_quests", function() {
@@ -22,19 +22,20 @@ $(document).on("click", "#quests_menu li", function() {
 $(document).on("click", ".grid_element", function() {
 	fadeOutAll(300);
 	$("#question_box").fadeIn(300);
-	$("#player").fadeIn(900);
+	$("#player").fadeIn(600);
 	$("#enemy").fadeIn(600);
 })
 
 /* AJAX Requests */
 
-function getQuestion() {
+function getQuestion(route) {
 	$.ajax({
 		method: "GET",
-		dataType: "string",
-		url: sessionStorage.hostname + sessionStorage.port + "/question",
+		dataType: "json",
+		url: sessionStorage.hostname + sessionStorage.port + route,
 		success: function(data) {
-			$("#question_box question").text(data);
+			console.log(data)
+			$("#question_box #question").text(data);
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 			console.log(jqXHR.responseText);
@@ -51,4 +52,8 @@ function fadeOutAll(time) {
 	$("#question_box").fadeOut(time);
 	$("#player").fadeOut(time);
 	$("#enemy").fadeOut(time);
+}
+
+function countDown(time) {
+	
 }
