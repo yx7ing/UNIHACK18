@@ -9,6 +9,10 @@
 	text-decoration:	none;
 }
 
+html {
+	background:	lightgrey;
+}
+
 article {
 	position:	relative;
 	width:	70%;
@@ -149,6 +153,7 @@ nav li a {
 nav li a:hover {
 	color:	blue;
 	background:	white;
+	cursor:	pointer;
 }
 
 /* Status menu */
@@ -156,10 +161,11 @@ nav li a:hover {
 #status_menu {
 	display:	block;
 	position:	absolute;
-	height:	40%;
-	width:	70%;
+	height:	50%;
+	width:	50%;
+	top:	25%;
+	left:	25%;
 	background:	black;
-	margin:	30% 15% 30% 15%;
 	border-radius:	30px;
 	padding:	50px;
 	opacity:	0.8;
@@ -191,9 +197,14 @@ nav li a:hover {
 	position:	relative;
 	height:	70%;
 	width:	70%;
-	left:	15%;
+	left:	5%;
 	top:	15%;
-	background:	yellow;	
+	background:	grey;
+	border-radius:	10px;
+}
+
+#placeholder:hover {
+	background:	white;
 }
 
 /* Quests Menu */
@@ -209,4 +220,67 @@ nav li a:hover {
 	position:	absolute;
 	border-radius:	50px;
 	padding:	50px;
+}
+
+#quests_menu li {
+	margin-bottom:	10px;
+	color:	white;
+	padding:	10px;
+	box-sizing:	border-box;
+}
+
+#quests_menu li:hover {
+	color:	blue;
+	background:	white;
+	cursor:	pointer;
+}
+
+#quests_menu li a {
+	font-size:	2em;
+	margin-bottom:	10px;
+}
+
+/* Quests Grid */
+
+#quests_grid {
+	display:	none;
+	top:	15%;
+	height:	70%;
+	width:	50%;
+	left:	25%;
+	background:	black;
+	opacity:	0.8;
+	box-sizing:	border-box;
+	position:	absolute;
+	border-radius:	50px;
+	padding:	50px;
+}
+
+#quests_grid h1 {
+	height: 20%;
+}
+
+table {
+	width:	100%;
+	height:	80%;
+}
+
+tbody {
+	width:	100%;
+	height;	100%;
+}
+
+.grid_element {
+	width:	90%;
+	height:	90%;
+	background:	grey;
+	border-color:	red;
+	border-radius:	10px;
+	box-sizing:	border-box;
+	margin:	5px;
+}
+
+.grid_element:hover {
+	background:	white;
+	cursor:	pointer;
 }
