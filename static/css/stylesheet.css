@@ -20,13 +20,13 @@ article {
 h1 {
 	font-size:	3em;
 	margin-bottom:	20px;
-
+	color:	white;
 }
 
 h2 {
 	font-size:	2em;
 	margin-bottom:	20px;
-
+	color:	white;
 }
 
 p {
@@ -72,6 +72,7 @@ p {
 #nav_options:hover a {
 	background:	white;
 	color:	blue;
+	cursor:	pointer;
 }
 
 #nav_left {
@@ -148,4 +149,64 @@ nav li a {
 nav li a:hover {
 	color:	blue;
 	background:	white;
+}
+
+/* Status menu */
+
+#status_menu {
+	display:	block;
+	position:	absolute;
+	height:	40%;
+	width:	70%;
+	background:	black;
+	margin:	30% 15% 30% 15%;
+	border-radius:	30px;
+	padding:	50px;
+	opacity:	0.8;
+	box-sizing: border-box;
+}
+
+#status_left {
+	position:	relative;
+	float:	left;
+	height:	80%;
+	width:	50%;
+}
+
+#status_right {
+	position:	relative;
+	float:	right;
+	top:	15%;
+	height:	80%;
+	width:	50%;
+}
+
+#status_top {
+	position:	relative;
+	float:	top;
+	height:	20%;
+}
+
+#placeholder {
+	position:	relative;
+	height:	70%;
+	width:	70%;
+	left:	15%;
+	top:	15%;
+	background:	yellow;	
+}
+
+/* Quests Menu */
+#quests_menu {
+	display:	none;
+	top:	15%;
+	height:	70%;
+	width:	40%;
+	left:	30%;
+	background:	black;
+	opacity:	0.8;
+	box-sizing:	border-box;
+	position:	absolute;
+	border-radius:	50px;
+	padding:	50px;
 }

@@ -3,24 +3,44 @@
 	<meta charset="utf-8">
 	<title>EduQuest</title>
 	<link rel = "stylesheet" 
-		type = "text/css" 
+	   type = "text/css" 
 	   href = "{{url_for('static',filename='css/stylesheet.css')}}" />
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-</html>
+	<script type="text/javascript" src="{{url_for('static',filename='js/jquery-3.3.1.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='js/main.js')}}"></script>
 
-<nav id="nav_top">
-	<section id="nav_main">
-		<ul>
-			<li><a id="nav_eduquest" href="./index.html">EduQuest</a></li>
-		</ul>
-	</section>
-</nav>
+	<nav id="nav_top">
+		<section id="nav_main">
+			<ul>
+				<li><a id="nav_eduquest" href="./">EduQuest</a></li>
+				<li><a id="nav_quests">Quests</a></li>
+				<li><a id="nav_eduquest" href="./">Status</a></li>
+			</ul>
+		</section>
+	</nav>
 
-<body>
-	<section id="status">
-		<div>
-			<h1>Status</h1>
-		</div>
-	</section>
-</body>
+	<body>
+		<section id="status_menu">
+			<div id="status_top">
+				<h1>Status</h1>
+			</div>
+			<div id="status_left">
+				<div id="placeholder">Placeholder</div>
+			</div>
+			<div id=status_right>
+				<h2>Level</h2>
+				<h2>Exp</h2>
+				<h2>Class</h2>
+			</div>
+		</section>
+
+		<section id="quests_menu">
+			<div>
+				<h1>Quests</h1>
+			</div>
+			<div>
+				<table>
+				</table>
+			</div>
+		</section>
+	</body>
 </html>
