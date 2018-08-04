@@ -22,10 +22,10 @@ def analyse_funct(name):
   #print(str(exp))
   cur.execute("""SELECT LEVEL FROM Player WHERE NAME = %s""" % test)
   lvl = cur.fetchone()[0]
-  print(lvl)
+  #print(lvl)
   cur.execute("""SELECT QUESTS_COMPLETED FROM Player WHERE NAME = %s""" % test)
   quest_nos = cur.fetchone()[0]
-  print(quest_nos)
+  #print(quest_nos)
 
   for quest_id in quest_nos:
 
@@ -37,14 +37,10 @@ def analyse_funct(name):
 
     #update topic count
 
-	# I thought this was supposed to contain a list of what topics have been done?
-
     if topic in topic_dict.keys():
-      topic_dict[topic] = topic_dict[topic] + 1
+      (topic_dict[topic])[subtopic] = True
     else:
-      topic_dict[topic] = 1
+      topic_dict[topic] = {subtopic: True}
 
-    #subtopic boolean table
-    subtopic_dict[subtopic] = True
-
-  return render_template('index.html',name=None)
+  ans = jsonify(topic_dict)
+  return ans
