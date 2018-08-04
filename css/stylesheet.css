@@ -1,0 +1,80 @@
+* {
+	font-family:	Lato, "Helvetica Neue", helvetica, sans-serif;
+	font-size:	1.0em;
+	font-weight:	300;
+	list-style:	none;
+	padding:	0;
+	border:	0;
+	margin:	0;
+	text-decoration:	none;
+}
+
+article {
+	position:	relative;
+	width:	70%;
+	margin:	30px auto;
+	top:	50px;
+
+}
+
+h1 {
+	font-size:	3em;
+	margin-bottom:	20px;
+
+}
+
+h2 {
+	font-size:	2em;
+	margin-bottom:	20px;
+
+}
+
+p {
+	margin-bottom:	20px;
+
+}
+
+.text {
+	display:	inline-block;
+
+}
+
+/* Top navigation panel */
+
+#nav_top {
+	position: fixed;
+	top:	0;
+	left:	0;
+	right:	0;
+	height:	30px;
+	background:	black;
+	overflow:	hidden;
+	opacity:	0.8;
+	z-index:	1;
+
+}
+
+#nav_main {
+	position: absolute;
+	top:	0;
+	left:	30px;
+
+}
+
+#nav_options {
+	display:	inline-block;
+	color:	white;
+	position:	relative;
+	line-height:	30px;
+	height:	30px;
+	font-size:	15px;
+	transition:	ease;
+	transition-duration:	0.3s;
+
+}
+
+#nav_options:hover a {
+	background:	white;
+	color:	blue;
+
+}
