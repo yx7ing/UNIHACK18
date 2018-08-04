@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 # Evaluate something to the power of something
 @app.route("/ind1")
-def qgen_ind_1():
+def ind_1():
 
 	base = random.randint(0, 10)
 	power = random.randint(0, 5)
@@ -20,7 +20,7 @@ def qgen_ind_1():
 # Creates questions for multiplication index law
 # Simplify indices (base can be changed)
 @app.route("/indm2")
-def qgen_indm_2():
+def indm_2():
 
 	base = random.randint(2, 10)
 	power1 = random.randint(0, 20)
@@ -44,7 +44,7 @@ def qgen_indm_2():
 # Creates questions for multiplication index law
 # Simplify indices (base can be changed)
 @app.route("/indm3")
-def qgen_indm_3():
+def indm_3():
 
 	base = random.randint(2, 10)
 	power1 = random.randint(0, 20)
@@ -71,7 +71,7 @@ def qgen_indm_3():
 # Creates questions for division index law
 # Simplify indices (keep base intact)
 @app.route("/indd2")
-def qgen_indd_2():
+def indd_2():
 
 	base = random.randint(2, 10)
 	power1 = random.randint(0, 20)
@@ -97,7 +97,7 @@ def qgen_indd_2():
 
 # Creates questions for power index law
 @app.route("/indp2")
-def qgen_indp_2():
+def indp_2():
 
 	base = random.randint(2, 10)
 	power1 = random.randint(0, 20)
