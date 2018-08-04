@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	sessionStorage.hostname = "http://127.0.0.1";
 	sessionStorage.port = ":5000/";
+	$("form").submit(false);
 })
 
 $(document).on("click", "#nav_quests", function() {
@@ -24,9 +25,13 @@ $(document).on("click", ".grid_element", function() {
 	$("#question_box").fadeIn(300);
 	$("#player").fadeIn(600);
 	$("#enemy").fadeIn(600);
+
+	initGame(0.1, "fin1");
 })
 
 /* AJAX Requests */
+
+var solution;
 
 function getQuestion(route) {
 	$.ajax({
@@ -35,7 +40,24 @@ function getQuestion(route) {
 		url: sessionStorage.hostname + sessionStorage.port + route,
 		success: function(data) {
 			console.log(data)
-			$("#question_box #question").text(data);
+			let values = data.params.split(",");
+			solution = values[-1];
+			switch (data.type) {
+				case "fin":
+					$("#question").text(values[0]);
+					console.log(values[values.length - 1]);
+					$("#question").attr("value", values[values.length - 1]);
+					break;
+				case "lin":
+					break;
+				case "add":
+					break;
+				case "ind":
+					break;
+				default:
+					console.log("Uncaught! " + data.type);
+					break;
+			}
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 			console.log(jqXHR.responseText);
@@ -54,6 +76,106 @@ function fadeOutAll(time) {
 	$("#enemy").fadeOut(time);
 }
 
-function countDown(time) {
-	
+var start;
+var end;
+var player_health;
+var enemy_health;
+
+var answer;
+var q;
+
+function resetGame(minutes) {
+	start = true;
+	player_health = 100;
+	enemy_health = 100;
+	q = 0;
+	$("#player .hp_foreground").animate({"width": "100%"});
+	$("#enemy .hp_foreground").animate({"width": "100%"});
+	end = Date.now() + minutes * 60 * 1000;
+	$("#ans_form").css("display", "block");
+}
+
+function initGame(minutes, route) {
+	resetGame(minutes);
+	getQuestion(route);
+	$(document).on("keydown", function(e) {
+		let key = (e.keyCode ? e.keyCode : e.which);
+		if (key == 13) { // Enter key
+			if (start) {
+				checkAnswer(minutes, route);
+			}
+			else {
+				$(document).off("keydown");
+				init(minutes, a, b, c, d);
+			}
+		}
+		else if (key == 32) { // Space Key
+			if (start) {
+				skip(a, b, c, d);
+			}
+			else {
+				$(document).off("keydown");
+				init(minutes, a, b, c, d);
+			}
+		}
+		return 0;
+	});
+	updateTimer(minutes);
+}	
+
+function endGame() {
+	let t = $("#timer");
+	if (player_health <= 0) {
+		t.empty();
+		t.append("Game Over!")
+	}
+	else if (enemy_health <= 0) {
+		t.empty();
+		t.append("You Win!")
+	}
+}
+
+function checkAnswer(minutes, route) {
+	if ($("#input_answer").val() == $("#question").attr("value")) {
+		end = Date.now() + minutes * 60 * 1000;
+		getQuestion(route);
+		dealDamage(25);
+	}
+	else {
+		receiveDamage(5);
+	}
+	$("#input_answer").val("");
+}
+
+function updateTimer(minutes) {	
+	var id = setInterval(function() {
+		if (player_health <= 0 || enemy_health <= 0) {
+			clearInterval(id);
+		}
+		let now = Date.now();
+		if (now > end - 200) {
+			receiveDamage();
+			if (player_health > 0 && enemy_health > 0) {
+				end = Date.now() + minutes * 60 * 1000;
+			}
+			else {
+				clearInterval(id);
+			}
+		}
+		let t = $("#timer");
+		t.empty();
+		t.append(Math.floor((end - now) / 1000));
+		endGame();
+
+	}, 100);
+}
+
+function receiveDamage() {
+	player_health -= 30;		
+	$("#player .hp_foreground").animate({"width": String(player_health) + "%"});
+}
+
+function dealDamage(dmg) {
+	enemy_health -= dmg;
+	$("#enemy .hp_foreground").animate({"width": String(enemy_health) + "%"});
 }

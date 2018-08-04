@@ -298,6 +298,27 @@ tbody {
 	position:	absolute;
 	border-radius:	50px;
 	padding:	50px;
+	color:	white;
+}
+
+#timer {
+	font-size:	5em;
+	margin-bottom:	20px;
+	text-align:	center;
+	width:	100%;
+}
+
+#question_box form {
+	margin-top:	50px;
+	width:	100%;
+	height:	50px;
+}
+
+#question_box form input {
+	width:	100%;
+	text-align:	center;
+	font-size:	2em;
+	border-radius:	5px;
 }
 
 #player {
@@ -337,7 +358,7 @@ tbody {
 }
 
 .hp_foreground {
-	width:	50%;
+	width:	0%;
 	height:	100%;
 	border-radius:	5px;
 	background:	green;
