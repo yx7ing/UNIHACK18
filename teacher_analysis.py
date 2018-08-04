@@ -22,8 +22,10 @@ def analyse_funct(name):
   #print(str(exp))
   cur.execute("""SELECT LEVEL FROM Player WHERE NAME = name""")
   lvl = cur.fetchone()[0]
+  print(lvl)
   cur.execute("""SELECT QUESTS_COMPLETED FROM Player WHERE NAME = name""")
   quest_nos = cur.fetchone()[0]
+  print(quest_nos)
 
   for quest_id in quest_nos:
 
