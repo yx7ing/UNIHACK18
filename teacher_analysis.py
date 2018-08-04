@@ -20,19 +20,19 @@ def analyse_funct(name):
   cur.execute("""SELECT EXP FROM Player WHERE NAME = %s""" % test)
   exp = cur.fetchone()[0]
   #print(str(exp))
-  cur.execute("""SELECT LEVEL FROM Player WHERE NAME = name""")
+  cur.execute("""SELECT LEVEL FROM Player WHERE NAME = %s""" % test)
   lvl = cur.fetchone()[0]
   print(lvl)
-  cur.execute("""SELECT QUESTS_COMPLETED FROM Player WHERE NAME = name""")
+  cur.execute("""SELECT QUESTS_COMPLETED FROM Player WHERE NAME = %s""" % test)
   quest_nos = cur.fetchone()[0]
   print(quest_nos)
 
   for quest_id in quest_nos:
 
     #check which topic/subtopic this quest is in
-    cur.execute("""SELECT TOPIC FROM Quests WHERE QUEST_ID = quest_id""")
+    cur.execute("""SELECT TOPIC FROM Quests WHERE QUEST_ID = %s""" % quest_id)
     topic = cur.fetchone()[0]
-    cur.execute("""SELECT SUBTOPIC FROM Quests WHERE QUEST_ID = quest_id""")
+    cur.execute("""SELECT SUBTOPIC FROM Quests WHERE QUEST_ID = %s""" % quest_id)
     subtopic = cur.fetchone()[0]
 
     #update topic count
