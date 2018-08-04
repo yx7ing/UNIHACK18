@@ -3,7 +3,7 @@ import psycopg2
 
 app = Flask(__name__)
 
-conn = psycopg2.connect("dbname='player' user='samlin' host='localhost' password='dbpass'")
+conn = psycopg2.connect("dbname='eduquest' user='samlin' host='localhost' password='dbpass'")
 cur = conn.cursor()
 
 # main page
@@ -29,10 +29,23 @@ def login():
 # check login credentials
 
 def valid_login(username, password):
-	cur.execute("""SELECT Password FROM Player WHERE Username = username""")
-	pw = cur.fetchall()
-	if pw == password:
-		return true
+	print(username, password)
+	cur.execute("""SELECT PASSWORD FROM Player WHERE USERNAME = username""")
+	pw = cur.fetchone()
+	if pw[0] == password:
+		print("a")
+		return True
 	else:
-		return false
+		print("f")
+		return False
 
+
+# login
+
+def do_login(username):
+	bonus = 10
+	cur.execute("""SELECT EXP FROM Player WHERE USERNAME = username""")
+	exp = cur.fetchone()[0] + bonus
+	print(exp)
+	cur.execute("""UPDATE Player SET EXP = exp WHERE USERNAME = username""")
+	return main_page()
