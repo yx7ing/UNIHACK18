@@ -2,6 +2,7 @@ from flask import Flask
 import ind as f
 import fin as g
 import lin as h
+import basic as b
 import random
 app = Flask(__name__)
 
@@ -49,10 +50,13 @@ def boss_battle(topic):
 		r_int = random.randint(1, 2)
 		if r_int == 1:
 			#ret = str(r_int)
-			ret += g.fin_1()
+			ret += g.equations()
 
 		elif r_int == 2:
 			#ret = str(r_int)
-			ret += g.fin_2()
+			ret += g.gradients()
+
+	elif topic == "basic":
+		ret += b.basic()
 
 	return ret
