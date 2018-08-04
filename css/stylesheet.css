@@ -38,7 +38,6 @@ p {
 	display:	inline-block;
 
 }
-
 /* Top navigation panel */
 
 #nav_top {
@@ -51,14 +50,12 @@ p {
 	overflow:	hidden;
 	opacity:	0.8;
 	z-index:	1;
-
 }
 
 #nav_main {
 	position: absolute;
 	top:	0;
 	left:	30px;
-
 }
 
 #nav_options {
@@ -70,11 +67,85 @@ p {
 	font-size:	15px;
 	transition:	ease;
 	transition-duration:	0.3s;
-
 }
 
 #nav_options:hover a {
 	background:	white;
 	color:	blue;
+}
 
+#nav_left {
+	position:	fixed;
+	left:	-300px;
+	top:	30px;
+	bottom:	30px;
+	height:	auto;
+	padding:	30px;
+	background:	white;
+	border-style:	solid;
+	border-color:	black;
+	border-right-width:	0px;
+	width:	0;
+	color:	transparent;
+	transition:	ease;
+	transition-duration:	0.3s;
+
+}
+
+#nav_options:hover #nav_left {
+	border-right-width:	20px;
+	left:	0;
+	color:	blue;
+	width:	300px;
+	display:	block;
+
+}
+
+#nav_left li {
+	width:	100%;
+	padding:	0px 10px 0px 10px;
+	box-sizing:	border-box;
+	border-radius:	5px;
+	border-width:	1px;
+	border-style:	solid;
+	border-color:	white;
+	background:	white;
+}
+
+#nav_left li:hover {
+	cursor:	pointer;
+	border-color:	blue;
+}
+
+#nav_left h2 {
+	font-size:	2em;
+	margin-bottom:	30px;
+}
+
+#nav_main li {
+	float:	left;
+	height:	30px;
+}
+
+#nav_search li {
+	float:	right;
+	height: 30px;
+}
+
+nav li a {
+	display:	inline-block;
+	color:	white;
+	position:	relative;
+	padding-left:	15px;
+	padding-right:	15px;
+	line-height:	30px;
+	height:	30px;
+	font-size:	15px;
+	transition:	ease;
+	transition-duration:	0.3s;
+}
+
+nav li a:hover {
+	color:	blue;
+	background:	white;
 }
