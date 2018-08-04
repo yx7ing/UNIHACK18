@@ -3,7 +3,7 @@ import psycopg2
 
 app = Flask(__name__)
 
-conn = psycopg2.connect("dbname='template1' user='dbuser' host='localhost' password='dbpass'")
+conn = psycopg2.connect("dbname='player' user='samlin' host='localhost' password='dbpass'")
 cur = conn.cursor()
 
 # main page
