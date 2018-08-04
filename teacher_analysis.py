@@ -8,7 +8,7 @@ cur = conn.cursor()
 
 @app.route('/analyse')
 def analyse():
-  student_name = '\'test\''
+  student_name = '\'a\''
   analyse_funct(student_name)
 
 #REQUIRES DEBUGGING: Works with NAME = 'test' but not with NAME = name;
