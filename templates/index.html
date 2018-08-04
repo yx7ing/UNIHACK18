@@ -11,7 +11,7 @@
 	<nav id="nav_top">
 		<section id="nav_main">
 			<ul>
-				<li><a id="nav_eduquest" href="./">EduQuest</a></li>
+				<li><a id="nav_eduquest">EduQuest</a></li>
 				<li><a id="nav_quests">Quests</a></li>
 				<li><a id="nav_eduquest">Status</a></li>
 			</ul>
@@ -24,7 +24,7 @@
 				<h1>Status</h1>
 			</div>
 			<div id="status_left">
-				<div id="placeholder">Placeholder</div>
+				<div id="placeholder"></div>
 			</div>
 			<div id=status_right>
 				<h2>Level</h2>
@@ -36,11 +36,67 @@
 		<section id="quests_menu">
 			<div>
 				<h1>Quests</h1>
-			</div>
-			<div>
-				<table>
-				</table>
+				<ul>
+					<li><a id="algebra">Algebra</a></li>
+					<li><a id="finance">Financial Maths</a></li>
+					<li><a id="exponentials">Exponentials</a></li>
+					<li><a id="arithmetic">Arithmetic</a></li>
+				</ul>
 			</div>
 		</section>
+
+		<section id="quests_grid">
+			<div>
+				<h1 id=grid_title></h1>
+			</div>
+			<table>
+				<tbody>
+					<tr>
+						<td><div class="grid_element"></div></td>
+						<td><div class="grid_element"></div></td>
+						<td><div class="grid_element"></div></td>
+						<td><div class="grid_element"></div></td>
+					</tr>
+					<tr>
+						<td><div class="grid_element"></div></td>
+						<td><div class="grid_element"></div></td>
+						<td><div class="grid_element"></div></td>
+						<td><div class="grid_element"></div></td>
+					</tr>
+					<tr>
+						<td><div class="grid_element"></div></td>
+						<td><div class="grid_element"></div></td>
+						<td><div class="grid_element"></div></td>
+						<td><div class="grid_element"></div></td>
+					</tr>
+					<tr>
+						<td><div class="grid_element"></div></td>
+						<td><div class="grid_element"></div></td>
+						<td><div class="grid_element"></div></td>
+						<td><div class="grid_element"></div></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
 	</body>
+
+	<section id="question_box">
+		<div id="question">
+		</div>
+	</section>
+
+	<section id="player">
+		<div class="hp_background">
+			<div class="hp_foreground">
+			</div>
+		</div>
+	</section>
+
+	<section id="enemy">
+		<div class="hp_background">
+			<div class="hp_foreground">
+			</div>
+		</div>
+	</section>
+
 </html>
