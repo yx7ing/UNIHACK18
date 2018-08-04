@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/basic")
 def basic():
     a = random.randint(0, 10)
-	b = random.randint(0, 10)
-	ans = a + b
+    b = random.randint(0, 10)
+    ans = a + b
 
-	return "basic," + a + "," + b + "," + ans
+    return "basic," + str(a) + "," + str(b) + "," + str(ans)

@@ -7,18 +7,24 @@ conn = psycopg2.connect("dbname='player' user='samlin' host='localhost' password
 cur = conn.cursor()
 
 @app.route('/analyse')
-def analyse(student_name):
+def analyse():
+  student_name = 'test'
+  analyse_funct(student_name)
+  
+#REQUIRES DEBUGGING: Works with NAME = 'test' but not with NAME = name;
+def analyse_funct(name):
   topic_dict = {}
   subtopic_dict = {}
-  cur.execute("""SELECT EXP FROM Player WHERE NAME = student_name""")
+  cur.execute("""SELECT EXP FROM Player WHERE NAME = 'test'""")
   exp = cur.fetchone()[0]
-  cur.execute("""SELECT LEVEL FROM Player WHERE NAME = student_name""")
+  #print(str(exp))
+  cur.execute("""SELECT LEVEL FROM Player WHERE NAME = 'test'""")
   lvl = cur.fetchone()[0]
-  cur.execute("""SELECT QUESTS_COMPLETED FROM Player WHERE NAME = student_name""")
-  quest_nos = cur.fetchone()[0]
+  cur.execute("""SELECT QUESTS_COMPLETED FROM Player WHERE NAME = 'test'""")
+  quest_nos = cur.fetchone()[0]  
   
-  for quest_id in quests_nos:
-  
+  for quest_id in quest_nos:
+
     #check which topic/subtopic this quest is in
     cur.execute("""SELECT TOPIC FROM Quests WHERE QUEST_ID = quest_id""")
     topic = cur.fetchone()[0]
@@ -30,11 +36,10 @@ def analyse(student_name):
       topic_dict[topic] = topic_dict[topic] + 1
     else:
       topic_dict[topic] = 1
-    
-    #subtopic boolean table
-      subtopic_dict[subtopic] = True
-    
-  
 
-  
+    #subtopic boolean table
+    subtopic_dict[subtopic] = True
+
+  return render_template('index.html',name=None)
+
   
