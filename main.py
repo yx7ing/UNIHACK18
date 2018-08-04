@@ -29,14 +29,11 @@ def login():
 # check login credentials
 
 def valid_login(username, password):
-	print(username, password)
 	cur.execute("""SELECT PASSWORD FROM Player WHERE USERNAME = username""")
 	pw = cur.fetchone()
 	if pw[0] == password:
-		print("a")
 		return True
 	else:
-		print("f")
 		return False
 
 
@@ -46,6 +43,9 @@ def do_login(username):
 	bonus = 10
 	cur.execute("""SELECT EXP FROM Player WHERE USERNAME = username""")
 	exp = cur.fetchone()[0] + bonus
-	print(exp)
-	cur.execute("""UPDATE Player SET EXP = exp WHERE USERNAME = username""")
+	update_sql = """UPDATE Player
+			SET EXP = %s
+			WHERE USERNAME = %s"""
+	cur.execute(update_sql, (str(exp), username))
+	conn.commit()
 	return main_page()

@@ -25,5 +25,4 @@ PRIMARY KEY (QUEST_ID)
 );
 
 INSERT INTO Player
-VALUES (0, 'admin', 'admin', 'admin', 0, 0, 0, 0, 0);
-VALUES (1, 'admin1', 'admin1', 'admin1', 0, 0, 0, 0, 0);
+VALUES (0, 'admin', 'admin', 'admin', 0, 0, 0, 0, 0, '{1,2,3,4,5}');;
