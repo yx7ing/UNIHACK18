@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import psycopg2
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ cur = conn.cursor()
 @app.route('/analyse')
 def analyse():
   student_name = '\'a\''
-  analyse_funct(student_name)
+  return analyse_funct(student_name)
 
 #REQUIRES DEBUGGING: Works with NAME = 'test' but not with NAME = name;
 def analyse_funct(name):
