@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request
+import psycopg2
+
 app = Flask(__name__)
 
+conn = psycopg2.connect("dbname='template1' user='dbuser' host='localhost' password='dbpass'")
+cur = conn.cursor()
 
 # main page
 
@@ -21,4 +25,14 @@ def login():
 			error = 'Invalid username/password'
 	return render_template('login.html', error=error)
 
+
+# check login credentials
+
+def valid_login(username, password):
+	cur.execute("""SELECT Password FROM Player WHERE Username = username""")
+	pw = cur.fetchall()
+	if pw == password:
+		return true
+	else:
+		return false
 
