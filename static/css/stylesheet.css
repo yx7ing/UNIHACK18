@@ -282,6 +282,10 @@ tbody {
 	margin:	5px;
 }
 
+#grid_4_4 {
+	background:	red;
+}
+
 .locked {
 	background:	darkblue;
 }
