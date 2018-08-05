@@ -1,27 +1,38 @@
+<!doctype html>
+<html>
+	<meta charset="utf-8">
+	<title>EduQuest</title>
+	<link rel = "stylesheet"
+	   type = "text/css"
+	   href = "{{url_for('static',filename='css/stylesheet.css')}}" />
+	<script type="text/javascript" src="{{url_for('static',filename='js/jquery-3.3.1.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='js/main.js')}}"></script>
 
-	<h1>
-		Login to your account
-	</h1>
+	<section id="status_menu">
+		<div id="status_top">
+			<h1>Login</h1>
+		</div>
+		<div id="status_left">
+			<div id="placeholder"></div>
+		</div>
+		<div id=status_right>
+			<table>
+				<tbody>
+					<tr>
+						<td><h2><form action="/login" method="post">
+						<font size="3">Username</font>
+						<br><input name="username" type="text" style="width: 270px"/>
+						<br>
+						<font size="3">Password</font>
+						<br><input name="password" type="password" style="width: 270px"/>
+						<br><br>
+						<input value="Login" type="submit" />
+						</form></h2></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
 
-	<div class="divider2">
-
-	</div>
-
-	<p>
-		Please enter your username and password.
-	</p>
-
-
-	<p>
-		<div class="misc">
-			<form action="/login" method="post">
-		<font size="2">Username</font>
-		<br><input name="username" type="text" />
-		<br>
-		<font size="2">Password</font>
-		<br><input name="password" type="password" />
-		<br><br>
-	<input value="Login" type="submit" />
-	</form>
-</div>
-
+</html>
