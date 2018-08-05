@@ -49,7 +49,10 @@ function getQuestion(route) {
 			$("#answer").attr("value", values[values.length - 1]);
 			console.log($("#answer").attr("value"));
 			switch (data.type) {
-				case "proj":
+				case "proj1":
+					$("#question").text(values[0]);
+					break;
+				case "kin1":
 					$("#question").text(values[0]);
 					break;
 				case "fin":
