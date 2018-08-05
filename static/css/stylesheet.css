@@ -11,6 +11,7 @@
 
 html {
 	background:	lightgrey;
+	background-image: url("../img/Clouds.jpg");
 }
 
 article {
@@ -182,7 +183,7 @@ nav li a:hover {
 #status_right {
 	position:	relative;
 	float:	right;
-	top:	15%;
+	top:	10%;
 	height:	80%;
 	width:	50%;
 }
@@ -280,6 +281,14 @@ tbody {
 	margin:	5px;
 }
 
+.locked {
+	background:	darkblue;
+}
+
+.unlocked {
+	background:	grey;
+}
+
 .grid_element:hover {
 	background:	white;
 	cursor:	pointer;
@@ -299,6 +308,7 @@ tbody {
 	border-radius:	50px;
 	padding:	50px;
 	color:	white;
+	text-align:	center;
 }
 
 #timer {
@@ -319,6 +329,14 @@ tbody {
 	text-align:	center;
 	font-size:	2em;
 	border-radius:	5px;
+}
+
+#equation {
+	font-size:	2em;
+}
+
+#question {
+	font-size:	2em;
 }
 
 #player {

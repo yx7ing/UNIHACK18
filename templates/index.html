@@ -27,9 +27,26 @@
 				<div id="placeholder"></div>
 			</div>
 			<div id=status_right>
-				<h2>Level</h2>
-				<h2>Exp</h2>
-				<h2>Class</h2>
+				<table>
+					<tbody>
+						<tr>
+							<td><h2>Name</h2></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><h2>Level</h2></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><h2>Exp</h2></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><h2>Class</h2></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</section>
 
@@ -37,10 +54,10 @@
 			<div>
 				<h1>Quests</h1>
 				<ul>
-					<li><a id="algebra">Algebra</a></li>
-					<li><a id="finance">Financial Maths</a></li>
-					<li><a id="exponentials">Exponentials</a></li>
-					<li><a id="arithmetic">Arithmetic</a></li>
+					<li id="lin"><a>Algebra</a></li>
+					<li id="fin"><a>Financial Maths</a></li>
+					<li id="ind"><a>Indices</a></li>
+					<li id="add"><a>Arithmetic</a></li>
 				</ul>
 			</div>
 		</section>
@@ -52,28 +69,28 @@
 			<table>
 				<tbody>
 					<tr>
-						<td><div id="grid_1_1" class="grid_element"></div></td>
-						<td><div id="grid_2_1" class="grid_element"></div></td>
-						<td><div id="grid_3_1" class="grid_element"></div></td>
-						<td><div id="grid_4_1" class="grid_element"></div></td>
+						<td><div id="grid_1_1" class="grid_element locked"></div></td>
+						<td><div id="grid_2_1" class="grid_element locked"></div></td>
+						<td><div id="grid_3_1" class="grid_element locked"></div></td>
+						<td><div id="grid_4_1" class="grid_element locked"></div></td>
 					</tr>
 					<tr>
-						<td><div id="grid_1_2" class="grid_element"></div></td>
-						<td><div id="grid_2_2" class="grid_element"></div></td>
-						<td><div id="grid_3_2" class="grid_element"></div></td>
-						<td><div id="grid_4_2" class="grid_element"></div></td>
+						<td><div id="grid_1_2" class="grid_element locked"></div></td>
+						<td><div id="grid_2_2" class="grid_element unlocked"></div></td>
+						<td><div id="grid_3_2" class="grid_element unlocked"></div></td>
+						<td><div id="grid_4_2" class="grid_element locked"></div></td>
 					</tr>
 					<tr>
-						<td><div id="grid_1_3" class="grid_element"></div></td>
-						<td><div id="grid_2_3" class="grid_element"></div></td>
-						<td><div id="grid_3_3" class="grid_element"></div></td>
-						<td><div id="grid_4_3" class="grid_element"></div></td>
+						<td><div id="grid_1_3" class="grid_element locked"></div></td>
+						<td><div id="grid_2_3" class="grid_element locked"></div></td>
+						<td><div id="grid_3_3" class="grid_element locked"></div></td>
+						<td><div id="grid_4_3" class="grid_element locked"></div></td>
 					</tr>
 					<tr>
-						<td><div id="grid_1_4" class="grid_element"></div></td>
-						<td><div id="grid_2_4" class="grid_element"></div></td>
-						<td><div id="grid_3_4" class="grid_element"></div></td>
-						<td><div id="grid_4_4" class="grid_element"></div></td>
+						<td><div id="grid_1_4" class="grid_element locked"></div></td>
+						<td><div id="grid_2_4" class="grid_element locked"></div></td>
+						<td><div id="grid_3_4" class="grid_element locked"></div></td>
+						<td><div id="grid_4_4" class="grid_element locked"></div></td>
 					</tr>
 				</tbody>
 			</table>
@@ -82,8 +99,10 @@
 
 	<section id="question_box">
 		<div>
+			<div id="answer"></div>
 			<div id="timer"></div>
 			<h3 id="question"></h3>
+			<div id="equation"><\div>
 			<div id=number1 class=number>
 			</div>
 			<div id=number_operation class=op>

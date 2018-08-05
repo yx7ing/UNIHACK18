@@ -10,7 +10,7 @@ app = Flask(__name__)
 def main_page():
     return render_template('index.html', name=None)
 
-@app.route("/basic")
+@app.route("/add1")
 def basic():
     a = random.randint(0, 10)
     b = random.randint(0, 10)

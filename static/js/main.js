@@ -18,15 +18,17 @@ $(document).on("click", "#quests_menu li", function() {
 	fadeOutAll(300);
 	$("#quests_grid").fadeIn(300);
 	$("#quests_grid h1").text($(this).find("a").text());
+	console.log($(this).attr("id"));
+	$(".grid_element").attr("value", $(this).attr("id"));
 })
 
-$(document).on("click", ".grid_element", function() {
+$(document).on("click", ".grid_element.unlocked", function() {
 	fadeOutAll(300);
 	$("#question_box").fadeIn(300);
 	$("#player").fadeIn(600);
 	$("#enemy").fadeIn(600);
 
-	initGame(0.1, "fin1");
+	initGame(0.1, $(this).attr("value") + String(parseInt($(this).attr("id").split("_")[1]) - 1));
 })
 
 /* AJAX Requests */
@@ -39,20 +41,37 @@ function getQuestion(route) {
 		dataType: "json",
 		url: sessionStorage.hostname + sessionStorage.port + route,
 		success: function(data) {
-			console.log(data)
+			console.log(route);
+			console.log(data);
+			$("#question").empty();
+			$("#equation").empty();
 			let values = data.params.split(",");
-			solution = values[-1];
+			$("#answer").attr("value", values[values.length - 1]);
+			console.log($("#answer").attr("value"));
 			switch (data.type) {
 				case "fin":
 					$("#question").text(values[0]);
 					console.log(values[values.length - 1]);
-					$("#question").attr("value", values[values.length - 1]);
 					break;
-				case "lin":
+				case "grad":
+					$("#equation").text("Find the gradient of the line given by the equation " + values[0]);
+					break;
+				case "eq":
+					$("#equation").text("Solve for x in the equation " + values[0]);
 					break;
 				case "add":
+					$("#equation").text(values[0] + " + " + values[1]);
 					break;
-				case "ind":
+				case "ind1":
+					$("#equation").append(values[0]);
+					$("#equation").append("<sup>" + values[1] + "</sup>");
+					break;
+				case "ind2":
+					$("#equation").append(values[0]);
+					$("#equation").append("<sup>" + values[1] + "</sup>");
+					$("#equation").append(" x ");
+					$("#equation").append(values[2]);
+					$("#equation").append("<sup>" + values[3] + "</sup>");
 					break;
 				default:
 					console.log("Uncaught! " + data.type);
@@ -98,15 +117,12 @@ function resetGame(minutes) {
 function initGame(minutes, route) {
 	resetGame(minutes);
 	getQuestion(route);
+	$(document).off("keydown");
 	$(document).on("keydown", function(e) {
 		let key = (e.keyCode ? e.keyCode : e.which);
 		if (key == 13) { // Enter key
 			if (start) {
 				checkAnswer(minutes, route);
-			}
-			else {
-				$(document).off("keydown");
-				init(minutes, a, b, c, d);
 			}
 		}
 		else if (key == 32) { // Space Key
@@ -136,7 +152,7 @@ function endGame() {
 }
 
 function checkAnswer(minutes, route) {
-	if ($("#input_answer").val() == $("#question").attr("value")) {
+	if ($("#input_answer").val() == $("#answer").attr("value")) {
 		end = Date.now() + minutes * 60 * 1000;
 		getQuestion(route);
 		dealDamage(25);
@@ -154,7 +170,7 @@ function updateTimer(minutes) {
 		}
 		let now = Date.now();
 		if (now > end - 200) {
-			receiveDamage();
+			receiveDamage(30);
 			if (player_health > 0 && enemy_health > 0) {
 				end = Date.now() + minutes * 60 * 1000;
 			}
@@ -170,8 +186,8 @@ function updateTimer(minutes) {
 	}, 100);
 }
 
-function receiveDamage() {
-	player_health -= 30;		
+function receiveDamage(dmg) {
+	player_health -= dmg;		
 	$("#player .hp_foreground").animate({"width": String(player_health) + "%"});
 }
 
