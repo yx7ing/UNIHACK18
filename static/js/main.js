@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$("form").submit(false);
 	var obj = document.createElement("audio");
 	obj.src="{{url_for('static',filename='js/user_clicks_quest.wav')}}";
-        obj.volume=0.10;
+        obj.volume=0.90;
         obj.autoPlay=false;
         obj.preLoad=true;
 })
