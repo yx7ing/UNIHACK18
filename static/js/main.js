@@ -3,7 +3,7 @@ $(document).ready(function() {
 	sessionStorage.port = ":5000/";
 	$("form").submit(false);
 	var obj = document.createElement("audio");
-	obj.src='user_clicks_quest.wav';
+	obj.src="{{url_for('static',filename='js/user_clicks_quest.wav')}}";
         obj.volume=0.10;
         obj.autoPlay=false;
         obj.preLoad=true;
