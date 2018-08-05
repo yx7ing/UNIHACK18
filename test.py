@@ -3,6 +3,7 @@ import random
 import ind as I
 import fin as F
 import lin as L
+import phys as P
 
 app = Flask(__name__)
 
@@ -54,6 +55,10 @@ def lin_1():
 def lin_2():
     return L.equations()
 
-@app.route("phys1")
-def phys_1():
-    return P.projectile();
+@app.route("/proj1")
+def proj_1():
+    return P.projectile()
+
+@app.route("/kin1")
+def kin_1():
+    return P.kinematics()

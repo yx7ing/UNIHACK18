@@ -49,9 +49,11 @@ function getQuestion(route) {
 			$("#answer").attr("value", values[values.length - 1]);
 			console.log($("#answer").attr("value"));
 			switch (data.type) {
+				case "proj":
+					$("#question").text(values[0]);
+					break;
 				case "fin":
 					$("#question").text(values[0]);
-					console.log(values[values.length - 1]);
 					break;
 				case "grad":
 					$("#equation").text("Find the gradient of the line given by the equation " + values[0]);
