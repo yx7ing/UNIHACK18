@@ -53,3 +53,7 @@ def lin_1():
 @app.route("/lin2")
 def lin_2():
     return L.equations()
+
+@app.route("phys1")
+def phys_1():
+    return P.projectile();

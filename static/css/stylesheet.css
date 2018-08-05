@@ -177,13 +177,13 @@ nav li a:hover {
 	position:	relative;
 	float:	left;
 	height:	80%;
+	position:	relative;
 	width:	50%;
 }
 
 #status_right {
-	position:	relative;
-	float:	right;
 	top:	10%;
+	float:	right;
 	height:	80%;
 	width:	50%;
 }
@@ -196,6 +196,7 @@ nav li a:hover {
 
 #placeholder {
 	position:	relative;
+	background-image: url("../img/bart.jpeg");
 	height:	70%;
 	width:	70%;
 	left:	5%;

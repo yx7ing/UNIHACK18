@@ -2,27 +2,19 @@ $(document).ready(function() {
 	sessionStorage.hostname = "http://127.0.0.1";
 	sessionStorage.port = ":5000/";
 	$("form").submit(false);
-	var obj = document.createElement("audio");
-	obj.src="{{url_for('static',filename='js/user_clicks_quest.wav')}}";
-        obj.volume=0.90;
-        obj.autoPlay=false;
-        obj.preLoad=true;
 })
 
 $(document).on("click", "#nav_quests", function() {
-	obj.play();
 	fadeOutAll(300);
 	$("#quests_menu").fadeIn(300);
 })
 
 $(document).on("click", "#nav_eduquest", function() {
-	obj.play();
 	fadeOutAll(300);
 	$("#status_menu").fadeIn(300);
 })
 
 $(document).on("click", "#quests_menu li", function() {
-	obj.play();
 	fadeOutAll(300);
 	$("#quests_grid").fadeIn(300);
 	$("#quests_grid h1").text($(this).find("a").text());
@@ -31,7 +23,6 @@ $(document).on("click", "#quests_menu li", function() {
 })
 
 $(document).on("click", ".grid_element.unlocked", function() {
-	obj.play();
 	fadeOutAll(300);
 	$("#question_box").fadeIn(300);
 	$("#player").fadeIn(600);

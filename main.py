@@ -7,7 +7,7 @@ import psycopg2
 
 app = Flask(__name__)
 
-conn = psycopg2.connect("dbname='eduquest' user='samlin' host='localhost' password='dbpass'")
+conn = psycopg2.connect("dbname='eduquest' user='colin_huang' host='localhost' password='qwerty123'")
 cur = conn.cursor()
 
 # main page
@@ -56,6 +56,7 @@ def do_login(username):
 
 # transform SQL queries to JSON
 
+@app.route('/get_players')
 def get_player():
 	player_dict = {}
 	cur.execute("""SELECT * FROM Player""")
@@ -83,6 +84,7 @@ def get_player():
 		player_dict['quests_completed'].append(one[9])
 	return jsonify(player_dict)
 
+@app.route('/get_quests')
 def get_quests():
 	quests_dict = {}
 	cur.execute("""SELECT * FROM Quests""")
