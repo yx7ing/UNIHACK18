@@ -28,7 +28,7 @@ $(document).on("click", ".grid_element.unlocked", function() {
 	$("#player").fadeIn(600);
 	$("#enemy").fadeIn(600);
 
-	initGame(0.1, $(this).attr("value") + String(parseInt($(this).attr("id").split("_")[1]) - 1));
+	initGame(0.5, $(this).attr("value") + String(parseInt($(this).attr("id").split("_")[1]) - 1));
 })
 
 /* AJAX Requests */
